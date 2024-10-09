@@ -1,0 +1,6 @@
+-r prod.txt
+icecream~=2.1
+pre-commit~=3.8
+pylint~=3.3
+pylint-pydantic==0.3.2
+ruff==0.6.9

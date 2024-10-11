@@ -37,7 +37,7 @@ help:
 	@echo "-----------------------------------------------------------------------------------------------------------"
 
 run:
-	cd backend && uvicorn main:main_app --reload
+	uvicorn main:main_app --reload
 
 test:
 	pytest

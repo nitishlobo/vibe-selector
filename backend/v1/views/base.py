@@ -2,9 +2,10 @@
 
 from collections.abc import Callable
 from enum import Enum
-from typing import Annotated, Any, Self
+from typing import Any, Self
 
 from fastapi import APIRouter as FastAPIRouter
+
 
 class APIRouter(FastAPIRouter):
     """API router class to resolve 307 Temporary Redirect issue.

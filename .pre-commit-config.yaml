@@ -41,6 +41,7 @@ repos:
       - id: name-tests-test
         description: verifies test files are named consistently (i.e. test_filename)
         args: ["--pytest-test-first"]
+        exclude: ^(.*/tests/fixtures/)
       # - id: no-commit-to-branch
       #   name: protect master/main branches from direct commits
       - id: pretty-format-json

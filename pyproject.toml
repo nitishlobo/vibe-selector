@@ -26,53 +26,53 @@ line-length = 120
 [tool.ruff.lint]
 ignore-init-module-imports = true
 select = [
-    "F",      # pyflakes
-    "E",      # pycodestyle error
-    "W",      # pycodestyle warning
-    "C90",    # mccabe
-    "I",      # isort
-    "N",      # pep8-naming
-    "D",      # pydocstyle
-    # "UP",   # pyupgrade - (once python v. >=3.10, remove pyupgrade pre-commit hook uncomment & uncomment this)
-    "YTT",    # flake8-2020
-    "ANN",    # flake8-annotations
-    # "S",    # flake8-bandit - (premature; once matured, remove bandit pre-commit hook & uncomment this)
-    "BLE",    # flake8-blind-except
-    "FBT",    # flake8-boolean-trap
-    "B",      # flake8-bugbear
-    "A",      # flake8-builtins
-    "COM",    # flake8-commas
-    "C4",     # flake8-comprehensions
-    "DTZ",    # flake8-datetimez
-    "T10",    # flake8-debugger
-    "DJ",     # django - (not needed but future proofing, just incase)
-    "EM",     # flake8-errmsg
-    "EXE",    # flake8-executable
-    "ISC",    # flake8-implicit-str-concat
-    "ICN",    # flake8-import-conventions
-    "G",      # flake8-logging-format
-    "INP",    # flake8-no-pep420
-    "PIE",    # flake8-pie
-    "T20",    # flake8-print
-    "PYI",    # flake8-pyi
-    "PT",     # flake8-pytest-style
-    "Q",      # flake8-quotes
-    "RSE",    # flake8-raise
-    "RET",    # flake8-return
-    "SLF",    # flake8-self
-    "SIM",    # flake8-simplify
-    "TID",    # flake8-tidy-imports
-    "TCH",    # flake8-type-checking
-    "INT",    # flake8-gettext
-    "ARG",    # flake8-unused-arguments
-    "PTH",    # flake8-use-pathlib
-    # "ERA",  # eradicate - (buggy, uncomment once this feature has matured)
-    "PD",     # pandas-vet - (not needed but future proofing, just incase)
-    # "PGH",  # pygrep-hooks - (remove from pre-commit and uncomment once ruff matures and finishes implementing it)
-    # "PL",   # pylint - (remove from pre-commit and uncomment once ruff matures and finishes implementing it)
-    "TRY",    # tryceratops
-    "NPY",    # numpy - (not needed but future proofing, just incase)
-    "RUF",    # ruff
+    "F",        # pyflakes
+    "E",        # pycodestyle error
+    "W",        # pycodestyle warning
+    "C90",      # mccabe
+    "I",        # isort
+    "N",        # pep8-naming
+    "D",        # pydocstyle
+    # "UP",     # pyupgrade - (once python v. >=3.10, remove pyupgrade pre-commit hook uncomment & uncomment this)
+    "YTT",      # flake8-2020
+    "ANN",      # flake8-annotations
+    # "S",      # flake8-bandit - (premature; once matured, remove bandit pre-commit hook & uncomment this)
+    "BLE",      # flake8-blind-except
+    "FBT",      # flake8-boolean-trap
+    "B",        # flake8-bugbear
+    "A",        # flake8-builtins
+    "COM",      # flake8-commas
+    "C4",       # flake8-comprehensions
+    "DTZ",      # flake8-datetimez
+    "T10",      # flake8-debugger
+    "DJ",       # django - (not needed but future proofing, just incase)
+    "EM",       # flake8-errmsg
+    "EXE",      # flake8-executable
+    "ISC",      # flake8-implicit-str-concat
+    "ICN",      # flake8-import-conventions
+    "G",        # flake8-logging-format
+    "INP",      # flake8-no-pep420
+    "PIE",      # flake8-pie
+    "T20",      # flake8-print
+    "PYI",      # flake8-pyi
+    "PT",       # flake8-pytest-style
+    "Q",        # flake8-quotes
+    "RSE",      # flake8-raise
+    "RET",      # flake8-return
+    "SLF",      # flake8-self
+    "SIM",      # flake8-simplify
+    "TID",      # flake8-tidy-imports
+    "TCH",      # flake8-type-checking
+    "INT",      # flake8-gettext
+    "ARG",      # flake8-unused-arguments
+    "PTH",      # flake8-use-pathlib
+    # "ERA",    # eradicate - (buggy, uncomment once this feature has matured)
+    "PD",       # pandas-vet - (not needed but future proofing, just incase)
+    # "PGH",    # pygrep-hooks - (remove from pre-commit and uncomment once ruff matures and finishes implementing it)
+    # "PL",     # pylint - (remove from pre-commit and uncomment once ruff matures and finishes implementing it)
+    "TRY",      # tryceratops
+    "NPY",      # numpy - (not needed but future proofing, just incase)
+    "RUF",      # ruff
 ]
 ignore = [
     "A002",     # builtin shadowing - covered by pylint redefined-builtin
@@ -120,15 +120,6 @@ classmethod-decorators = ["pydantic.validator"]
     "INP001",  # Implicit namespace package for tests - (tests folder should not be a module)
     "FBT001",  # Boolean positional arg in function definition - (triggers on boolean fixtures)
 ]
-"**/migrations/alembic_models.py" = [
-    "F401"     # Unused import - alembic uses these imports to know what models to generate and how
-]
-"**/migrations/versions/*" = [
-    "N999"     # invalid-module-name - migration file names have timestamps
-]
-"**/migrations/versions/*.py" = [
-    "INP001"   # Implicit namespace package for alembic (alembic migrations folder should not be a module)
-]
 
 [tool.ruff.lint.pycodestyle]
 max-doc-length = 120
@@ -166,7 +157,6 @@ ignore = ["CVS"]
 # format. Because '\\' represents the directory delimiter on Windows systems, it
 # can't be used as an escape character.
 ignore-paths = [
-    "v1/database/migrations*",
 ]
 
 # Files or directories matching the regular expression patterns are skipped. The
@@ -200,7 +190,6 @@ good-names = "_, e, i, j, k, v, n, x, y, z, db"
 exclude-too-few-public-methods = """
     pydantic.*,
     ^.*BaseModel$,
-    ^.*SqlAlchemyBase$,
 """
 min-public-methods = 1
 
@@ -251,9 +240,6 @@ min-similarity-lines = 4
 # We extend this value to also match our test user fixtures.
 ignored-argument-names = "_.*|^ignored_|^unused_|^test_"
 
-[tool.pylint.typecheck]
-ignored-modules = ["alembic.context", "alembic.op"]
-
 # -------------------------------------------------------------------------------------------------
 # Security
 # -------------------------------------------------------------------------------------------------
@@ -301,10 +287,7 @@ markers = [
 [tool.coverage.run]
 # Exclude the following paths from test coverage reports
 omit = [
-    "v1/database/migrations/env.py",
-    "v1/database/migrations/alembic_models.py",
-    "v1/database/models/test_factories/*",
-    "v1/test_fixtures/*",
+    "tests/*",
 ]
 
 [tool.coverage.report]

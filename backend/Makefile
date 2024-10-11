@@ -82,47 +82,47 @@ lint-all:
 # -------------------------------------------------------------------------------------------------
 # OS specific commands - please uncomment the relevant section depending on your OS
 # -------------------------------------------------------------------------------------------------
-# Windows
+# MacOS / Linux
 
 # Remove build artifacts
 clean-build:
-	for /d /r %%p in (.eggs, *.egg-info, *.egg) do  @if exist "%%p" rmdir /s /q "%%p"
-
-# Remove lint artifacts
-clean-lint:
-	for /d /r %%p in (.ruff_cache, .mypy_cache) do  @if exist "%%p" rmdir /s /q "%%p"
+	find . -name '.eggs' -exec rm -fr {} +
+	find . -name '*.egg-info' -exec rm -fr {} +
+	find . -name '*.egg' -exec rm -f {} +
 
 # Remove Python file artifacts
 clean-pyc:
-	for /d /r %%p in (__pycache__) do  @if exist "%%p" rmdir /s /q "%%p"
-	for /d /r %%p in (*.pyc, *.pyo, *~) do  @if exist "%%p" del /s /f /q "%%p"
+	find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +
+	find . -name '__pycache__' -exec rm -fr {} +
+
+# Remove lint artifacts
+clean-lint:
+	find . -name '.ruff_cache' -exec rm -fr {} +
+	find . -name '.mypy_cache' -exec rm -fr {} +
 
 # Remove test and coverage artifacts
 clean-test:
-	for /d /r %%p in (.pytest_cache, htmlcov) do  @if exist "%%p" rmdir /s /q "%%p"
-	for /d /r %%p in (.coverage) do  @if exist "%%p" del /s /f /q "%%p"
+	find . -name '.pytest_cache' -exec rm -fr {} +
 
 # -------------------------------------------------------------------------------------------------
-# MacOS / Linux
+# Windows
 
 # # Remove build artifacts
 # clean-build:
-# 	find . -name '.eggs' -exec rm -fr {} +
-# 	find . -name '*.egg-info' -exec rm -fr {} +
-# 	find . -name '*.egg' -exec rm -f {} +
-
-# # Remove Python file artifacts
-# clean-pyc:
-# 	find . -name '*.pyc' -exec rm -f {} +
-# 	find . -name '*.pyo' -exec rm -f {} +
-# 	find . -name '*~' -exec rm -f {} +
-# 	find . -name '__pycache__' -exec rm -fr {} +
+# 	for /d /r %%p in (.eggs, *.egg-info, *.egg) do  @if exist "%%p" rmdir /s /q "%%p"
 
 # # Remove lint artifacts
 # clean-lint:
-# 	find . -name '.ruff_cache' -exec rm -fr {} +
-# 	find . -name '.mypy_cache' -exec rm -fr {} +
+# 	for /d /r %%p in (.ruff_cache, .mypy_cache) do  @if exist "%%p" rmdir /s /q "%%p"
+
+# # Remove Python file artifacts
+# clean-pyc:
+# 	for /d /r %%p in (__pycache__) do  @if exist "%%p" rmdir /s /q "%%p"
+# 	for /d /r %%p in (*.pyc, *.pyo, *~) do  @if exist "%%p" del /s /f /q "%%p"
 
 # # Remove test and coverage artifacts
 # clean-test:
-# 	find . -name '.pytest_cache' -exec rm -fr {} +
+# 	for /d /r %%p in (.pytest_cache, htmlcov) do  @if exist "%%p" rmdir /s /q "%%p"
+# 	for /d /r %%p in (.coverage) do  @if exist "%%p" del /s /f /q "%%p"

@@ -1,8 +1,9 @@
 """Main app."""
 
 from fastapi import APIRouter, FastAPI
-from settings import APP_TITLE, DEBUG_BACKEND_V1
-from v1.views.health_check import router as health_check_router
+
+from src.settings import APP_TITLE, DEBUG_BACKEND_V1
+from src.v1.views.health_check import router as health_check_router
 
 # Main app and versions
 main_app = FastAPI(title=APP_TITLE, version="1.0.0", debug=DEBUG_BACKEND_V1)

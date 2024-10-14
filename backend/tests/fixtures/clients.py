@@ -7,7 +7,7 @@ from collections.abc import Generator
 
 import pytest
 from fastapi.testclient import TestClient
-from main import main_app
+from src.main import main_app
 
 
 @pytest.fixture

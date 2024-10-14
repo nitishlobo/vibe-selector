@@ -105,6 +105,8 @@ clean-lint:
 # Remove test and coverage artifacts
 clean-test:
 	find . -name '.pytest_cache' -exec rm -fr {} +
+	find . -name 'htmlcov' -exec rm -fr {} +
+	find . -name '.coverage' -exec rm -fr {} +
 
 # -------------------------------------------------------------------------------------------------
 # Windows

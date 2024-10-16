@@ -1,0 +1,1 @@
+"""Core of infra app."""
